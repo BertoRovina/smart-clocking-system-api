@@ -50,59 +50,59 @@ public class Clocking implements Serializable {
 	}
 
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "data", nullable = false)
+	@Column(name = "date", nullable = false)
 	public Date getData() {
 		return date;
 	}
 
-	public void setData(Date data) {
-		this.date = data;
+	public void setData(Date date) {
+		this.date = date;
 	}
 
-	@Column(name = "descricao", nullable = true)
-	public String getDescricao() {
+	@Column(name = "description", nullable = true)
+	public String getDescription() {
 		return description;
 	}
 
-	public void setDescricao(String descricao) {
-		this.description = descricao;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
-	@Column(name = "localizacao", nullable = true)
-	public String getLocalizacao() {
+	@Column(name = "localization", nullable = true)
+	public String getLocalization() {
 		return localization;
 	}
 
-	public void setLocalizacao(String localizacao) {
-		this.localization = localizacao;
+	public void setLocalization(String localization) {
+		this.localization = localization;
 	}
 
-	@Column(name = "data_criacao", nullable = false)
-	public Date getDataCriacao() {
+	@Column(name = "creation_date", nullable = false)
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
-	public void setDataCriacao(Date dataCriacao) {
+	public void setCreationDate(Date dataCriacao) {
 		this.creationDate = dataCriacao;
 	}
 
-	@Column(name = "data_atualizacao", nullable = false)
-	public Date getDataAtualizacao() {
+	@Column(name = "updateDate", nullable = false)
+	public Date getUpdateDate() {
 		return updateDate;
 	}
 
-	public void setDataAtualizacao(Date dataAtualizacao) {
-		this.updateDate = dataAtualizacao;
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
 	}
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "tipo", nullable = false)
-	public TypeEnum getTipo() {
+	@Column(name = "type", nullable = false)
+	public TypeEnum getType() {
 		return type;
 	}
 
-	public void setTipo(TypeEnum tipo) {
-		this.type = tipo;
+	public void setType(TypeEnum type) {
+		this.type = type;
 	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -121,9 +121,9 @@ public class Clocking implements Serializable {
      
     @PrePersist
     public void prePersist() {
-        final Date atual = new Date();
-        creationDate = atual;
-        updateDate = atual;
+        final Date current = new Date();
+        creationDate = current;
+        updateDate = current;
     }
 
 	@Override

@@ -44,7 +44,7 @@ public class Company implements Serializable{
 		this.id = id;
 	}
 
-	@Column(name = "razao_social", nullable = false)
+	@Column(name = "social_reason", nullable = false)
 	public String getSocialReason() {
 		return socialReason;
 	}
@@ -58,12 +58,12 @@ public class Company implements Serializable{
 		return doc;
 	}
 
-	public void setDoc(String cnpj) {
-		this.doc = cnpj;
+	public void setDoc(String doc) {
+		this.doc = doc;
 	}
 
 	@Column(name = "creation_date", nullable = false)
-	public Date getcreationDate() {
+	public Date getCreationDate() {
 		return creationDate;
 	}
 
@@ -96,9 +96,9 @@ public class Company implements Serializable{
      
     @PrePersist
     public void prePersist() {
-        final Date atual = new Date();
-        creationDate = atual;
-        updateDate = atual;
+        final Date current = new Date();
+        creationDate = current;
+        updateDate = current;
     }
 
 	@Override

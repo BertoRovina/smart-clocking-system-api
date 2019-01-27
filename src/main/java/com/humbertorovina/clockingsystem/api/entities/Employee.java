@@ -86,7 +86,7 @@ public class Employee {
 	}
 
 	@Column(name = "hour_rate", nullable = true)
-	public BigDecimal getValorHora() {
+	public BigDecimal getHourDate() {
 		return hourRate;
 	}
 	
@@ -95,8 +95,8 @@ public class Employee {
 		return Optional.ofNullable(hourRate);
 	}
 
-	public void setValorHora(BigDecimal valorHora) {
-		this.hourRate = valorHora;
+	public void setHourRate(BigDecimal hourRate) {
+		this.hourRate = hourRate;
 	}
 
 	@Column(name = "work_hours_per_day", nullable = true)
@@ -128,7 +128,7 @@ public class Employee {
 	}
 
 	@Enumerated(EnumType.STRING)
-	@Column(name = "perfil", nullable = false)
+	@Column(name = "profile", nullable = false)
 	public ProfileEnum getProfile() {
 		return profile;
 	}
@@ -142,7 +142,7 @@ public class Employee {
 		return creationDate;
 	}
 
-	public void setDataCriacao(Date creationDate) {
+	public void setCreationDate(Date creationDate) {
 		this.creationDate = creationDate;
 	}
 
@@ -165,7 +165,7 @@ public class Employee {
 	}
 
 	@ManyToOne(fetch = FetchType.EAGER)
-	public Company getEmpresa() {
+	public Company getCompany() {
 		return company;
 	}
 
@@ -178,8 +178,8 @@ public class Employee {
 		return clockling;
 	}
 
-	public void setLancamentos(List<Clocking> lancamentos) {
-		this.clockling = lancamentos;
+	public void setClocking(List<Clocking> clockling) {
+		this.clockling = clockling;
 	}
 	
 	@PreUpdate
