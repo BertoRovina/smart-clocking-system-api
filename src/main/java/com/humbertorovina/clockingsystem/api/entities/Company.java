@@ -85,7 +85,7 @@ public class Company implements Serializable{
 		return employees;
 	}
 
-	public void setFuncionarios(List<Employee> employees) {
+	public void setEmployees(List<Employee> employees) {
 		this.employees = employees;
 	}
 

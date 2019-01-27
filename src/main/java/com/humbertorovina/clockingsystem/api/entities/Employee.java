@@ -81,12 +81,12 @@ public class Employee {
 		return doc;
 	}
 
-	public void setCpf(String doc) {
+	public void setDoc(String doc) {
 		this.doc = doc;
 	}
 
 	@Column(name = "hour_rate", nullable = true)
-	public BigDecimal getHourDate() {
+	public BigDecimal getHourRate() {
 		return hourRate;
 	}
 	
