@@ -56,11 +56,6 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
-		
-		<dependency>
-	        <groupId>javax.xml.bind</groupId>
-	        <artifactId>jaxb-api</artifactId>
-		</dependency>
 
 	</dependencies>
 
