@@ -18,7 +18,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.humbertorovina.clocklingsystem.api.enums.TypeEnum;
+import com.humbertorovina.clockingsystem.api.enums.TypeEnum;
 
 
 @Entity

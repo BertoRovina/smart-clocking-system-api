@@ -22,12 +22,12 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-import com.humbertorovina.clocklingsystem.api.enums.ProfileEnum;
+import com.humbertorovina.clockingsystem.api.enums.ProfileEnum;
 
 
 @Entity
 @Table(name = "employee")
-public class Employee {
+public class Employee implements Serializable{
 	
 	private static final long serialVersionUID = -5754246207015712518L;
 	
@@ -191,7 +191,7 @@ public class Employee {
     public void prePersist() {
         final Date current = new Date();
         creationDate = current;
-        creationDate = current;
+        updateDate = current;
     }
 
 	@Override

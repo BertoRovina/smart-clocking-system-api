@@ -1,4 +1,4 @@
-package com.humbertorovina.clocklingsystem.api.enums;
+package com.humbertorovina.clockingsystem.api.enums;
 
 public enum TypeEnum {
 	START_WORK,

@@ -18,13 +18,13 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name = "empresa")
+@Table(name = "company")
 public class Company implements Serializable{
 	
 	private static final long serialVersionUID = 395453462;
 	
 	private Long id;
-	private String socialReason;
+	private String companyName;
 	private String doc;
 	private Date creationDate;
 	private Date updateDate;
@@ -44,13 +44,13 @@ public class Company implements Serializable{
 		this.id = id;
 	}
 
-	@Column(name = "social_reason", nullable = false)
-	public String getSocialReason() {
-		return socialReason;
+	@Column(name = "company_name", nullable = false)
+	public String getCompanyName() {
+		return companyName;
 	}
 
-	public void setSocialReason(String socialReason) {
-		this.socialReason = socialReason;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	@Column(name = "doc", nullable = false)
@@ -103,7 +103,7 @@ public class Company implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Company [id=" + id + ", socialReason=" + socialReason + ", doc=" + doc + ", creationDate="
+		return "Company [id=" + id + ", socialReason=" + companyName + ", doc=" + doc + ", creationDate="
 				+ creationDate + ", updateDate=" + updateDate + ", employees=" + employees + "]";
 	}
 }
