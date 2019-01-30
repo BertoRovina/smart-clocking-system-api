@@ -19,6 +19,7 @@ import com.humbertorovina.clockingsystem.api.entities.Employee;
 import com.humbertorovina.clockingsystem.api.enums.ProfileEnum;
 import com.humbertorovina.clockingsystem.api.utils.PasswordUtils;
 
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
@@ -82,7 +83,7 @@ public class EmployeeRepositoryTest {
 		Employee employee = new Employee();
 		employee.setName("Fool Foolman");
 		employee.setProfile(ProfileEnum.ROLE_USER);
-		employee.setPassword(PasswordUtils.gerarBCrypt("123456"));
+		employee.setPassword(PasswordUtils.generateBCrypt("123456"));
 		employee.setDoc(DOC);
 		employee.setEmail(EMAIL);
 		employee.setCompany(company);

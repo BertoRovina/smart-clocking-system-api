@@ -85,7 +85,7 @@ public class ClockingRepositoryTest {
 		Employee employee = new Employee();
 		employee.setName("Fulano de Tal");
 		employee.setProfile(ProfileEnum.ROLE_USER);
-		employee.setPassword(PasswordUtils.gerarBCrypt("123456"));
+		employee.setPassword(PasswordUtils.generateBCrypt("123456"));
 		employee.setDoc("24291173474");
 		employee.setEmail("email@email.com");
 		employee.setCompany(company);
