@@ -74,8 +74,8 @@ public class RegisterCompDto {
 		return companyName;
 	}
 
-	public void setCompanyName(String razaoSocial) {
-		this.companyName = razaoSocial;
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
 	}
 
 	@NotEmpty(message = "DOC must not be empty.")
