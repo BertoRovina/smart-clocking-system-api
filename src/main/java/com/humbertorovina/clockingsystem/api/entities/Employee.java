@@ -2,6 +2,7 @@ package com.humbertorovina.clockingsystem.api.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +24,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import com.humbertorovina.clockingsystem.api.enums.ProfileEnum;
-
 
 @Entity
 @Table(name = "employee")
@@ -119,7 +119,7 @@ public class Employee implements Serializable{
 	}
 	
 	@Transient
-	public Optional<Float> getlunchHoursOpt() {
+	public Optional<Float> getLunchHoursOpt() {
 		return Optional.ofNullable(lunchHours);
 	}
 
@@ -189,9 +189,9 @@ public class Employee implements Serializable{
      
     @PrePersist
     public void prePersist() {
-        final Date current = new Date();
-        creationDate = current;
-        updateDate = current;
+        creationDate = Calendar.getInstance().getTime();
+        updateDate = Calendar.getInstance().getTime();
+        
     }
 
 	@Override
@@ -199,8 +199,8 @@ public class Employee implements Serializable{
 		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", doc=" + doc
 				+ ", hourRate=" + hourRate + ", workHoursPerDay=" + workHoursPerDay + ", lunchHours=" + lunchHours
 				+ ", profile=" + profile + ", creationDate=" + creationDate + ", updateDate=" + updateDate
-				+ ", company=" + company + ", clockling=" + clockling + "]";
+				+ ", company=" + company.getId() + ", clockling=" + clockling + "]";
 	}
-    
+
     
 }

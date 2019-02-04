@@ -1,6 +1,7 @@
 package com.humbertorovina.clockingsystem.api.entities;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -96,9 +97,8 @@ public class Company implements Serializable{
      
     @PrePersist
     public void prePersist() {
-        final Date current = new Date();
-        creationDate = current;
-        updateDate = current;
+        creationDate = Calendar.getInstance().getTime();
+        updateDate = Calendar.getInstance().getTime();
     }
 
 	@Override
