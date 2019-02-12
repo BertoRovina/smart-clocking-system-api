@@ -43,7 +43,7 @@ public class Employee implements Serializable{
 	private Date creationDate;
 	private Date updateDate;
 	private Company company;
-	private List<Clocking> clockling;
+	private List<Clocking> clocking;
 	
 	public Employee() {
 	}
@@ -175,11 +175,11 @@ public class Employee implements Serializable{
 
 	@OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	public List<Clocking> getClocking() {
-		return clockling;
+		return clocking;
 	}
 
 	public void setClocking(List<Clocking> clockling) {
-		this.clockling = clockling;
+		this.clocking = clockling;
 	}
 	
 	@PreUpdate
@@ -199,7 +199,7 @@ public class Employee implements Serializable{
 		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", doc=" + doc
 				+ ", hourRate=" + hourRate + ", workHoursPerDay=" + workHoursPerDay + ", lunchHours=" + lunchHours
 				+ ", profile=" + profile + ", creationDate=" + creationDate + ", updateDate=" + updateDate
-				+ ", company=" + company.getId() + ", clockling=" + clockling + "]";
+				+ ", company=" + company.getId() + "]";
 	}
 
     
