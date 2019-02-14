@@ -178,8 +178,8 @@ public class Employee implements Serializable{
 		return clocking;
 	}
 
-	public void setClocking(List<Clocking> clockling) {
-		this.clocking = clockling;
+	public void setClocking(List<Clocking> clocking) {
+		this.clocking = clocking;
 	}
 	
 	@PreUpdate
@@ -197,9 +197,9 @@ public class Employee implements Serializable{
 	@Override
 	public String toString() {
 		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", doc=" + doc
-				+ ", hourRate=" + hourRate + ", workHoursPerDay=" + workHoursPerDay + ", lunchHours=" + lunchHours
-				+ ", profile=" + profile + ", creationDate=" + creationDate + ", updateDate=" + updateDate
-				+ ", company=" + company.getId() + "]";
+				+ ", hourRate=" + hourRate + ", workHoursPerDay=" + workHoursPerDay + ", lunchHours="
+				+ lunchHours + ", profile=" + profile + ", creationDate="
+				+ creationDate + ", updateDate=" + updateDate + ", company=" + company.getId() + "]";
 	}
 
     

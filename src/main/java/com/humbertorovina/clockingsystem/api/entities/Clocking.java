@@ -22,7 +22,7 @@ import com.humbertorovina.clockingsystem.api.enums.TypeEnum;
 
 
 @Entity
-@Table(name = "clockling")
+@Table(name = "clocking")
 public class Clocking implements Serializable {
 	
 	private static final long serialVersionUID = 6524560251526772839L;
@@ -51,11 +51,11 @@ public class Clocking implements Serializable {
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "date", nullable = false)
-	public Date getData() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setData(Date date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
 
@@ -130,9 +130,6 @@ public class Clocking implements Serializable {
 	public String toString() {
 		return "Clocking [id=" + id + ", date=" + date + ", description=" + description + ", localization="
 				+ localization + ", creationDate=" + creationDate + ", updateDate=" + updateDate + ", type=" + type
-				+ ", employee=" + employee + "]";
+				+ ", employeeId=" + employee.getId() + "]";
 	}
-
-    
-
 }

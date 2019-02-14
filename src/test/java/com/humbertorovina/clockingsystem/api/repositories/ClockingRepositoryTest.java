@@ -75,7 +75,7 @@ public class ClockingRepositoryTest {
 	
 	private Clocking retrieveDataClockings(Employee employee) {
 		Clocking lancameto = new Clocking();
-		lancameto.setData(new Date());
+		lancameto.setDate(new Date());
 		lancameto.setType(TypeEnum.START_LUNCH);
 		lancameto.setEmployee(employee);
 		return lancameto;
