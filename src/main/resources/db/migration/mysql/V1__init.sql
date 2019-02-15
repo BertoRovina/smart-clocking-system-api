@@ -3,7 +3,7 @@ CREATE TABLE `company` (
   `doc` varchar(255) NOT NULL,
   `update_date` datetime NOT NULL,
   `creation_date` datetime NOT NULL,
-  `social_reason` varchar(255) NOT NULL
+  `company_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `employee` (
