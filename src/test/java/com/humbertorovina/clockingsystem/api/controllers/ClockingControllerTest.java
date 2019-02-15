@@ -64,7 +64,7 @@ public class ClockingControllerTest {
         BDDMockito.given(this.clockingService.persist(Mockito.any(Clocking.class))).willReturn(clocking);
 
         mvc.perform(MockMvcRequestBuilders.post(URL_BASE)
-                .with(csrf())
+//                .with(csrf())
                 .content(this.retrievePostRequestJson())
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
@@ -82,7 +82,7 @@ public class ClockingControllerTest {
         BDDMockito.given(this.employeeService.searchById(Mockito.anyLong())).willReturn(Optional.empty());
 
         mvc.perform(MockMvcRequestBuilders.post(URL_BASE)
-                .with(csrf())
+//                .with(csrf())
                 .content(this.retrievePostRequestJson())
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
@@ -97,12 +97,13 @@ public class ClockingControllerTest {
         BDDMockito.given(this.clockingService.searchById(Mockito.anyLong())).willReturn(Optional.of(new Clocking()));
 
         mvc.perform(MockMvcRequestBuilders.delete(URL_BASE + CLOCKING_ID)
-                .with(csrf())
+//                .with(csrf())
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
+    @WithMockUser
     public void removeClockingDeniedAccessTest() throws Exception{
         BDDMockito.given(this.clockingService.searchById(Mockito.anyLong())).willReturn(Optional.of(new Clocking()));
 
