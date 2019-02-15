@@ -6,7 +6,7 @@
 
 - Project being created using Spring Boot and Java 8
 - MySQL Database with JPA and Spring Data JPA
-- Authentication and authorization with Spring Security abd JWT tokens (JSON Web Token)
+- Authentication and authorization with Spring Security and JWT tokens (JSON Web Token)
 - Database migration with Flyway
 - Unit tests with JUnit and Mockito
 - EhCache Caching
