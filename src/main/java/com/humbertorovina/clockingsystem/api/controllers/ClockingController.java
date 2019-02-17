@@ -256,5 +256,4 @@ public class ClockingController {
 
         return clocking;
     }
-
 }

@@ -24,13 +24,12 @@ public class ClockingServiceImpl implements ClockingService{
 	@Autowired
 	private ClockingRepository clockingRepo;
 
-	
 	public Page<Clocking> searchEmployeeById(Long employeeId, PageRequest pageRequest) {
-		log.info("Searching clockings by employee ID {}", employeeId);
+		log.info("Searching clocking by employee ID {}", employeeId);
 		return this.clockingRepo.findByEmployeeId(employeeId, pageRequest);
 	}
 
-	@Cacheable("searchById")
+	@Cacheable("clockingById")
 	public Optional<Clocking> searchById(Long id) {
 		log.info("Searching one clocking by ID {} ", id);
 		return this.clockingRepo.findById(id);
@@ -46,5 +45,4 @@ public class ClockingServiceImpl implements ClockingService{
 		log.info("Removing clocking with id {} ", id);
 		this.clockingRepo.deleteById(id);
 	}
-
 }
