@@ -55,7 +55,7 @@ public class RegisterEmployeeController {
 	public ResponseEntity<Response<RegisterEmployeeDto>> register(@Valid @RequestBody RegisterEmployeeDto registerEmployeeDto,
 			BindingResult result) throws NoSuchAlgorithmException {
 		log.info("Registering Employee: {}", registerEmployeeDto.toString());
-		Response<RegisterEmployeeDto> response = new Response<RegisterEmployeeDto>();
+		Response<RegisterEmployeeDto> response = new Response<>();
 
 		validateExistingData(registerEmployeeDto, result);
 		Employee employee = this.convertDtotoEmployee(registerEmployeeDto, result);
@@ -112,7 +112,7 @@ public class RegisterEmployeeController {
 		registerEmployeeDto.getLunchHours()
 				.ifPresent(lunchHours -> employee.setLunchHours(Float.valueOf(lunchHours)));
 		registerEmployeeDto.getWorkHoursPerDay()
-				.ifPresent(qtdHorasTrabDia -> employee.setWorkHoursPerDay(Float.valueOf(qtdHorasTrabDia)));
+				.ifPresent(workHoursPerDay -> employee.setWorkHoursPerDay(Float.valueOf(workHoursPerDay)));
 		registerEmployeeDto.getHourRate().ifPresent(hourRate -> employee.setHourRate(new BigDecimal(hourRate)));
 
 		return employee;

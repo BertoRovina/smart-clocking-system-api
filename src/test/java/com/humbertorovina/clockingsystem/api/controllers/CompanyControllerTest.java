@@ -59,11 +59,11 @@ public class CompanyControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.get(SEARCH_COMPANY_DOC_URL + DOC)
                 .accept(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$.data.id").value(ID))
-                .andExpect(jsonPath("$.data.companyName", equalTo(COMPANY_NAME)))
-                .andExpect(jsonPath("$.data.companyDoc", equalTo(DOC)))
-                .andExpect(jsonPath("$.errors").isEmpty());
+                    .andExpect(status().isOk())
+                    .andExpect(jsonPath("$.data.id").value(ID))
+                    .andExpect(jsonPath("$.data.companyName", equalTo(COMPANY_NAME)))
+                    .andExpect(jsonPath("$.data.companyDoc", equalTo(DOC)))
+                    .andExpect(jsonPath("$.errors").isEmpty());
     }
 
     private Company retrieveCompanyData() {

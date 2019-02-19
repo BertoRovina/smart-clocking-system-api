@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
 
+import javax.swing.text.html.Option;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -12,12 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.humbertorovina.clockingsystem.api.dtos.EmployeeDto;
 import com.humbertorovina.clockingsystem.api.entities.Employee;
@@ -36,6 +32,29 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     public EmployeeController(){ }
+
+
+    /**
+     * Returns a employee based on the ID
+     *
+     * @param employeeId
+     * @return ResponseEntity<Response<EmployeeDto>>
+     */
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Response<EmployeeDto>> searchByDoc(@PathVariable("id") Long employeeId){
+        log.info("Searching Employee by id: {}", employeeId);
+        Response<EmployeeDto> response = new Response<>();
+        Optional<Employee> employee = employeeService.searchById(employeeId);
+
+        if(!employee.isPresent()){
+            log.info("Employee not found based on the Employee Id: {}", employeeId);
+            response.getErrors().add("Employee not found based on the Employee Id:" + employeeId);
+            return ResponseEntity.badRequest().body(response);
+        }
+
+        response.setData(this.convertEmployeeDto(employee.get()));
+        return ResponseEntity.ok(response);
+    }
 
     /**
      * Updates an Employee data

@@ -38,8 +38,8 @@ public class CompanyController {
      */
     @GetMapping(value = "/doc/{companyDoc}")
     public ResponseEntity<Response<CompanyDto>> searchByDoc(@PathVariable("companyDoc") String companyDoc) {
-        log.info("Buscando company por CNPJ: {}", companyDoc);
-        Response<CompanyDto> response = new Response<CompanyDto>();
+        log.info("Searching Company by Doc: {}", companyDoc);
+        Response<CompanyDto> response = new Response<>();
         Optional<Company> company = companyService.searchByDoc(companyDoc);
 
         if (!company.isPresent()) {
