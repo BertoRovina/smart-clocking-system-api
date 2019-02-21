@@ -28,9 +28,9 @@ import com.humbertorovina.clockingsystem.api.utils.PasswordUtils;
 @RestController
 @RequestMapping("/api/register-company")
 @CrossOrigin(origins = "*") // Allows requisitions from any domain (for demonstration only)
-public class RegisterCompController {
+public class RegisterCompanyController {
 	
-	private static final Logger log = LoggerFactory.getLogger(RegisterCompController.class);
+	private static final Logger log = LoggerFactory.getLogger(RegisterCompanyController.class);
 	
 	@Autowired
 	private EmployeeService employeeService;
@@ -38,7 +38,7 @@ public class RegisterCompController {
 	@Autowired
 	private CompanyService companyService;
 	
-	public RegisterCompController() { }
+	public RegisterCompanyController() { }
 	
 	
 	/**
@@ -65,8 +65,7 @@ public class RegisterCompController {
 			return ResponseEntity.badRequest().body(response);
 		}
 
-		this.companyService.persist(company);
-		employee.setCompany(company);
+		employee.setCompany(this.companyService.persist(company));
 
 		response.setData(this.convertCompanyRegistrationToDto(this.employeeService.persist(employee)));
 		return ResponseEntity.ok(response);
@@ -140,5 +139,4 @@ public class RegisterCompController {
 
 		return registerCompDto;
 	}
-	
 }
