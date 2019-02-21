@@ -20,5 +20,5 @@ public interface CompanyService {
 	 * @param company
 	 * @return Company
 	 */
-	Company persistent(Company company);
+	Company persist(Company company);
 }

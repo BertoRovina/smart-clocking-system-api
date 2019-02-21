@@ -32,7 +32,6 @@ import com.humbertorovina.clockingsystem.api.services.EmployeeService;
 import com.humbertorovina.clockingsystem.api.services.ClockingService;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -118,6 +117,7 @@ public class ClockingControllerTest {
         clockingDto.setType(TYPE);
         clockingDto.setDate(this.dateFormat.format(DATE));
         clockingDto.setEmployeeId(EMPLOYEE_ID);
+
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(clockingDto);
     }

@@ -45,7 +45,7 @@ public class RegisterEmployeeDto {
 
 	@NotEmpty(message = "Email must not be empty.")
 	@Length(min = 5, max = 200, message = "Email should have between 5 and 200 characters.")
-	@Email(message="Email inválido.")
+	@Email(message="Invalid Email.")
 	public String getEmail() {
 		return email;
 	}
@@ -63,7 +63,7 @@ public class RegisterEmployeeDto {
 		this.password = password;
 	}
 
-	@NotEmpty(message = "CPF must not be empty.")
+	@NotEmpty(message = "Doc must not be empty.")
 	@Size(min=3,max=20, message = "Doc should have between 3 and 20 characters.")
 	public String getDoc() {
 		return doc;
@@ -97,7 +97,7 @@ public class RegisterEmployeeDto {
 		this.lunchHours = lunchHours;
 	}
 
-	@NotEmpty(message = "CNPJ must not be empty.")
+	@NotEmpty(message = "Company Doc must not be empty.")
 	@Size(min=3,max=20, message = "Company Doc should have between 3 and 20 characters.")
 	public String getCompanyDoc() {
 		return companyDoc;

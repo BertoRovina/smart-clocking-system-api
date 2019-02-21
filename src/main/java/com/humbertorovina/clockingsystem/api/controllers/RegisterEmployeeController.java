@@ -44,7 +44,7 @@ public class RegisterEmployeeController {
 	}
 
 	/**
-	 * Register an employee.
+	 * Registers an employee.
 	 * 
 	 * @param registerEmployeeDto
 	 * @param result
@@ -55,6 +55,7 @@ public class RegisterEmployeeController {
 	public ResponseEntity<Response<RegisterEmployeeDto>> register(@Valid @RequestBody RegisterEmployeeDto registerEmployeeDto,
 			BindingResult result) throws NoSuchAlgorithmException {
 		log.info("Registering Employee: {}", registerEmployeeDto.toString());
+
 		Response<RegisterEmployeeDto> response = new Response<>();
 
 		validateExistingData(registerEmployeeDto, result);
@@ -68,9 +69,8 @@ public class RegisterEmployeeController {
 		
 		Optional<Company> company = this.companyService.searchByDoc(registerEmployeeDto.getCompanyDoc());
 		company.ifPresent(emp -> employee.setCompany(emp));
-		this.employeeService.persist(employee);
 
-		response.setData(this.converterRegisterEmployeeDto(employee));
+		response.setData(this.converterRegisterEmployeeDto(this.employeeService.persist(employee)));
 		return ResponseEntity.ok(response);
 	}
 
@@ -127,6 +127,7 @@ public class RegisterEmployeeController {
 	private RegisterEmployeeDto converterRegisterEmployeeDto(Employee employee) {
 		RegisterEmployeeDto registerEmployeeDto = new RegisterEmployeeDto();
 		registerEmployeeDto.setId(employee.getId());
+
 		registerEmployeeDto.setName(employee.getName());
 		registerEmployeeDto.setEmail(employee.getEmail());
 		registerEmployeeDto.setDoc(employee.getDoc());
@@ -140,5 +141,4 @@ public class RegisterEmployeeController {
 
 		return registerEmployeeDto;
 	}
-
 }

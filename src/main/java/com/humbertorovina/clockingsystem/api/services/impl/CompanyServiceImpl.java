@@ -26,7 +26,7 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 
 	@Override
-	public Company persistent(Company company) {
+	public Company persist(Company company) {
 		log.info("Persisting company: {}", company);
 		return this.companyRepository.save(company);
 	}

@@ -48,7 +48,7 @@ public class CompanyServiceTest {
 	
 	@Test
 	public void testPersistirCompany() {
-		Company company = this.companyService.persistent(new Company());
+		Company company = this.companyService.persist(new Company());
 
 		assertNotNull(company);
 	}

@@ -17,7 +17,7 @@ public interface EmployeeService {
 	/**
 	 * Search employee by doc
 	 * 
-	 * @param Doc
+	 * @param doc
 	 * @return Optional<Employee>
 	 */
 	Optional<Employee> searchByDoc(String doc);

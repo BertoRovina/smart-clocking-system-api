@@ -25,7 +25,6 @@ import com.humbertorovina.clockingsystem.api.services.CompanyService;
 import com.humbertorovina.clockingsystem.api.services.EmployeeService;
 import com.humbertorovina.clockingsystem.api.utils.PasswordUtils;
 
-
 @RestController
 @RequestMapping("/api/register-company")
 @CrossOrigin(origins = "*") // Allows requisitions from any domain (for demonstration only)
@@ -54,7 +53,7 @@ public class RegisterCompController {
 	public ResponseEntity<Response<RegisterCompDto>> register(@Valid @RequestBody RegisterCompDto registerCompDto,
 			BindingResult result) throws NoSuchAlgorithmException {
 		log.info("Registering Company: {}", registerCompDto.toString());
-		Response<RegisterCompDto> response = new Response<RegisterCompDto>();
+		Response<RegisterCompDto> response = new Response<>();
 
 		validateExistingData(registerCompDto, result);
 		Company company = this.convertDtoToCompany(registerCompDto);
@@ -66,11 +65,10 @@ public class RegisterCompController {
 			return ResponseEntity.badRequest().body(response);
 		}
 
-		this.companyService.persistent(company);
+		this.companyService.persist(company);
 		employee.setCompany(company);
-		this.employeeService.persist(employee);
 
-		response.setData(this.convertCompanyRegistrationToDto(employee));
+		response.setData(this.convertCompanyRegistrationToDto(this.employeeService.persist(employee)));
 		return ResponseEntity.ok(response);
 	}
 	

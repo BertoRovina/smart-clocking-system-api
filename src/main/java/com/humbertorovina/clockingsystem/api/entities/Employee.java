@@ -199,6 +199,6 @@ public class Employee implements Serializable{
 		return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", doc=" + doc
 				+ ", hourRate=" + hourRate + ", workHoursPerDay=" + workHoursPerDay + ", lunchHours="
 				+ lunchHours + ", profile=" + profile + ", creationDate=" + creationDate + ", updateDate=" + updateDate
-				+ ", company=" + company.getId() + "]";
+				+ ", company=" + company.getDoc() + "]";
 	}
 }
