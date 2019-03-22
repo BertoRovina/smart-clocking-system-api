@@ -60,7 +60,7 @@ public class AuthenticationController {
     public ResponseEntity<Response<TokenDto>> generatesJwtToken(
             @Valid @RequestBody JwtAuthenticationDto authenticationDto, BindingResult result)
             throws AuthenticationException {
-        Response<TokenDto> response = new Response<TokenDto>();
+        Response<TokenDto> response = new Response<>();
 
         if (result.hasErrors()) {
             log.error("Error validating clocking: {}", result.getAllErrors());
@@ -68,7 +68,7 @@ public class AuthenticationController {
             return ResponseEntity.badRequest().body(response);
         }
 
-        log.info("Generating toke for the email {}.", authenticationDto.getEmail());
+        log.info("Generating token for the email {}.", authenticationDto.getEmail());
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 authenticationDto.getEmail(), authenticationDto.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
